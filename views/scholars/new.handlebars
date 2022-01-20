@@ -1,0 +1,123 @@
+{{>_header}}
+{{>_msg}}
+
+
+
+
+<div class="container-flex" id="contentsc">
+<h5 class="text-center p-3 ">Jambites 2021 Scholarship Program Application Form</h5>
+<a href="/scholarship/details" class="d-flex justify-content-center"id="ins">Read the scholarship instructions</a>
+<div class="container" id="cont">
+<form action="/scholarship/scholar" method="POST">
+<div class="form-group">
+  <h5 class="my-3" id="deta">Personal Details</h5>
+    <label>First Name</label>
+    <input type="text" name="firstName" class="form-control" placeholder="Your first name" required="required" value="{{firstName}}">
+</div>
+<div class="form-group">
+  <label>Last Name</label>
+    <input type="text" name="lastName" class="form-control" placeholder="Your last name" required="required" value="{{lastName}}">
+</div>
+<div class="form-group">
+  <label>Email</label>
+    <input type="email" name="email" class="form-control" placeholder="Your email" required="required" value="{{email}}">
+</div>
+<div class="form-group">
+  <label>State of Origin</label>
+    <input type="text" name="state" class="form-control" placeholder="Your state of origin e.g Kano" required="required" value="{{state}}">
+</div>
+<div class="form-group">
+     <label>
+     Gender
+    </label>
+  <select name="gender" class="form-control" id="" required="required" >
+    {{#select gender}}
+     <option value="select">Select</option> 
+    <option value="m">Male</option>
+  <option value="f">Female</option>
+           {{/select}}
+          </select>
+</div>
+  <h5 class="my-3" id="deta">Jamb Details</h5>
+
+<div class="form-group">
+  <label>Jamb Reg Number</label>
+    <input type="text" name="regNumber" class="form-control" placeholder="Your jamb registration number" required="required" value="{{regNumber}}">
+</div>
+<div class="form-group">
+    <label >Jamb Score</label>
+    <select name="score" class="form-control" id="" required="required">
+    {{#select score}}
+    <option value="select">Select</option>
+    <option value="249">200 - 249</option>
+     <option value="279">250 - 279</option>
+     <option value="299">280 - 299</option>
+    <option value="349">300 - 349</option>
+    <option value="400">350 - 400</option>
+     {{/select}}
+    </select>
+</div>
+
+<div class="form-group">
+  <label>Choice of Institution</label>
+    <input type="text" name="choice" class="form-control" placeholder="Your choice of institution e.g Unilag" required="required" value="{{choice}}">
+</div>
+  <h5 class="my-3" id="deta">Bank Details</h5>
+<div class="form-group">
+    <label >Bank Name</label>
+    <select name="bank" class="form-control" id="" required="required">
+    {{#select bank}}
+    <option value="select">Select</option>
+    <option value="First Bank">First Bank</option>
+     <option value="Access">Access</option>
+     <option value="Zenith">Zenith</option>
+       <option value="GTB">GTB</option>
+       <option value="UBA">UBA</option>
+    <option value="Ecobank">Ecobank</option>
+     <option value="Polaris Bank">Polaris Bank</option>
+    <option value="FCMB">FCMB</option>
+     <option value="Fidelity">Fidelity</option>
+     <option value="Stanbic">Stanbic</option>
+    <option value="Sterling">Sterling</option>
+    <option value="Union">Union</option>
+      <option value="Unity">Unity</option>
+        <option value="Keystone">Keystone</option>
+        <option value="Wema">Wema</option>
+   
+     {{/select}}
+    </select>
+</div>
+<div class="form-group">
+  <label>Account Number</label>
+    <input type="number" name="account" class="form-control" placeholder="Your account number" required="required" value="{{account}}">
+</div>
+<div class="form-group">
+  <label>Account Name</label>
+    <input type="text" name="actName" class="form-control" placeholder="Your account name" required="required" value="{{actName}}">
+</div>
+<!--admin  only-->
+{{#if superAdmin}}
+  <div class="form-group">
+    <input class="" type="checkbox"  name="isScholar"> 
+      <label>isScholarr</label>
+
+        </div>
+        {{/if}}
+<div class="form-group">
+    <button class=" btn btnsc">Submit</button>
+</div>
+</form>
+</div>
+</div>
+
+{{>_footer2}}
+
+  <style>
+ @media screen and (max-width: 576px){
+        
+    #gender{
+        width:90x;
+        max-width:90px;
+    }
+    }
+   </style>

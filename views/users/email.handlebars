@@ -1,0 +1,60 @@
+
+
+{{>_header}}
+<div class="container-flex my-4">
+  <div class="footer-top py-5">
+        <div class="container">
+            <div class="row footer-cform pt-lg-5">
+ <div class="col-lg-12 wthree-form-left my-lg-0 mt-4">
+                    <h5 class="footer-top-title">send <span class="text-danger"> {{user.username}}</span> a message</h5>
+                    <div class="footer-top-form">
+                        <form action="/email_user" method="POST" class="footer-top-wthree">
+                            <div class="form-group d-flex">
+                                <label>
+                                   Sender
+                                </label>
+                                <input class="form-control" type="text" placeholder="Johnson" name="sender" required="" value="{{sender.username}}" id="sender">
+                            </div>
+                             <div class="form-group d-flex">
+                                <label>
+                                    User Name
+                                </label>
+                                <input class="form-control" type="text" placeholder="Johnson" name="username" required="" value="{{user.username}}" id="userName">
+                            </div>
+                            <div class="form-group d-flex">
+                                <label>
+                                    Email
+                                </label>
+                                <input class="form-control" type="email" placeholder="example@email.com" name="email" value="{{user.email}}" id="userEmail"
+                                    required="">
+                            </div>
+                            
+                            <div class="form-group d-flex">
+                                <label>
+                                    Message
+                                </label>
+                                <textarea class="form-control" rows="5" id="contactcomment" placeholder="Your message" name="message"
+                                    required></textarea>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-agile btn-block w-25">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                <script>
+                   document.getElementById('sender').addEventListener('mousedown', function(e){
+                       e.preventDefault();
+                   }) 
+                     document.getElementById('userEmail').addEventListener('mousedown', function(e){
+                       e.preventDefault();
+                   }) 
+                     document.getElementById('userName').addEventListener('mousedown', function(e){
+                       e.preventDefault();
+                   }) 
+                </script>

@@ -1,0 +1,128 @@
+ <!-- footer top -->
+    <div class="footer-top py-5">
+        <div class="container">
+            <div class="row footer-cform pt-lg-5">
+                <div class="col-lg-6">
+                    <h5 class="footer-top-title">site navigation</h5>
+                    <div class="footer-top-agileits">
+                        <ul class="list-agileits d-flex">
+                            <li>
+                                <a href="/" class="nav-link py-0 pl-0">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/about" class="nav-link py-0">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/contact" class="nav-link py-0">
+                                    Contact Us
+                                </a>
+                            </li>
+                             {{#if user}}  
+                            <li>
+                                <a href="/logout" class="nav-link py-0">
+                                    Logout
+                                </a>
+                            </li>
+                            {{ else }}
+                             <li>
+                                <a href="/login" class="nav-link py-0">
+                                    Login 
+                                </a>
+                            </li>
+                            {{/if}}
+                        </ul>
+                        <ul class="list-agileits d-flex">
+                         
+                            <li>
+                                <a href="/privacy" class="nav-link py-0">
+                                    privacy policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/disclaimer" class="nav-link py-0">
+                                    Disclaimer
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                  
+                </div>
+                <div class="col-lg-6 wthree-form-left my-lg-0 mt-4">
+                    <h5 class="footer-top-title">send us a message</h5>
+                    <div class="footer-top-form">
+                        <form action="/contact" method="POST" class="footer-top-wthree">
+                            <div class="form-group d-flex">
+                                <label>
+                                    Name
+                                </label>
+                                <input class="form-control" type="text" placeholder="Johnson" name="name" required="required">
+                            </div>
+                            <div class="form-group d-flex">
+                                <label>
+                                    Email
+                                </label>
+                                <input class="form-control" type="email" placeholder="example@email.com" name="email"
+                                    required="required">
+                            </div>
+                          
+                            <div class="form-group d-flex">
+                                <label>
+                                    Message
+                                </label>
+                                <textarea class="form-control" rows="5" id="contactcomment" placeholder="Your message" name="messageBody"
+                                    required></textarea>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-agile btn-block w-25" >Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //footer top -->
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="social-icons d-flex  my-auto justify-content-lg-start justify-content-center">
+                        <h2 class="mr-4">stay connected with us!</h2>
+                       
+                    </div>
+                </div>
+                <div class="col-lg-6 my-lg-auto mt-3">
+                    <div class="cpy-right text-lg-right text-center">
+                        <p class="text-secondary">© 2021 Eduline. All rights reserved | 
+                            <a href="/"> Eduline</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!-- script for password match -->
+    <script>
+        window.onload = function () {
+            document.getElementById("password1").onchange = validatePassword;
+            document.getElementById("password2").onchange = validatePassword;
+        }
+
+        function validatePassword() {
+            var pass2 = document.getElementById("password2").value;
+            var pass1 = document.getElementById("password1").value;
+            if (pass1 != pass2)
+                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("password2").setCustomValidity('');
+            //empty string means no validation error
+        }
+    </script>
+    <!-- script for password match -->
+  

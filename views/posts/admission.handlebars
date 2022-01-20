@@ -1,0 +1,101 @@
+     {{>_header}}
+
+  <!-- banner -->
+    <div class="inner-banner-w3ls text-right d-flex align-items-center">
+        <div class="container">
+            <h6 class="agileinfo-title">Admision Posts </h6>
+            <ol class="breadcrumb-parent d-flex justify-content-end">
+                <li class="breadcrumb-nav">
+                    <a href="/">Home</a>
+                </li>
+                <li class="breadcrumb-nav active  text-capitalize" aria-current="page"> Admission Posts</li>
+            </ol>
+        </div>
+    </div>
+    <!-- //banner -->
+    <!-- posts -->
+    <section class="courses-sec py-5">
+        <div class="container py-lg-5">
+            <div class="title-section pb-4">
+                <h3 class="main-title-agile">Admission Posts</h3>
+                <div class="title-line">
+                </div>
+            </div>
+
+            <div class="row py-3">
+                <div class="col-lg-12 my-3">
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button class="btn btn-info" id="list">
+                                <i class="fas fa-list-ul"></i>
+                            </button>
+                            <button class="btn btn-danger" id="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="products" class="row view-group">
+                {{#if posts}}
+                {{#each posts}}
+                <div class="item col-lg-4">
+                    <div class="thumbnail card">
+                        <div class="img-event">
+                            <img class="group list-group-image img-fluid" src="{{image.[0]}}" alt="" id="postImage" />
+                        </div>
+                        <div class="caption card-body">
+                           <a href="/post/{{slug}}"><h4 class="group card-title inner list-group-item-heading">
+                                {{title}}</h4></a>
+                            <p class="group inner list-group-item-text">
+                               {{{truncate detail 50}}}</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="postTime mt-1">
+                                        {{formatDate date "fromNow"}}</p>
+                                </div>
+                                <div class="col-6">
+                                    <a class="btn btn-course" href="/post/{{slug}}">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               {{/each}}
+                {{ else }}
+                <p class="">No admission posts yet</p>
+               {{/if}}
+          </div>
+           <!--pagination begins-->
+
+          <div class="pagination d-flex justify-content-center my-4">
+              <ul class="nav">
+                   {{#if startIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{startIndex}}" class="nav-link bg-danger mr-1 text-white"> <i class="fa fa-angle-double-left"> Previous Posts</i></a> 
+                 </li>
+                    {{/if}}
+                     {{#if nextIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{nextIndex}}" class="nav-link bg-danger mr-1 text-white"> Next Posts <i class="fa fa-angle-double-right"></i></a> 
+               </li>  
+               {{/if}}
+              </ul>
+          </div>
+          <!--pagination end-->
+        </div>
+    </section>
+    <!-- //posts -->
+  {{>_footer}}
+
+
+<style>
+    #postImage{
+        width:100%;
+        height:250px;
+    }
+    .postTime{
+        color: red;
+        font-family: cursive;
+    }
+</style>

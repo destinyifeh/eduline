@@ -1,0 +1,184 @@
+{{>_adm_head}}
+
+<div class="container text-center my-4">
+   {{#if posts}}
+  <p class="text-center">Search results for <span class="text-danger">{{query}}</span></p>
+  
+   {{/if}}
+    {{#each posts}}
+    <div class="card mb-2">
+        <div class="card-header">
+            <h5 class=""> Post</h5>
+        </div>
+        <div class="container d-flex justify-content-between">
+      <a href="/edit/post/{{slug}}" class=""><span class="badge badge-primary"> <i class="fa fa-edit"></i> Edit Post </span></a>
+       </div>    
+       <div class="card-body">
+       <p class="text" >Title</p> 
+       <a href="/post/{{slug}}"><span class ="">{{title}}</span></a>
+     <p class="text" >Image</p> 
+       <span class="myUser"><img class="" src="{{image.[0]}}" width="200" height="200"></span>
+       <p class="text" >Category</p>
+       <a href="/post/{{category}}"><span class ="">{{category}}</span></a>
+     <p class="text" >Date Posted</p>
+      <span class ="myUser">{{formatTime date "h:mm a DD/MM/YYYY"}}</span>
+     <p class="text" >Views </p>
+     <span class ="myUser">{{views}}</span>
+     <p class="text" >Comments </p>
+     <span class ="myUser">{{commenting.length}}</span>
+     
+       
+       </div> 
+        <div class="container d-flex justify-content-between my-2">
+          <a href="/delete/post/{{slug}}" class=""><span class="badge badge-danger p-2"> <i class="fa fa-trash"></i> Delete Post</span></a>
+
+          <a href="/" class=""><span class="badge badge-primary">Go to admin dashboard </span></a>
+       </div>
+    </div>
+   {{/each}}
+
+    <!--pagination begins-->
+          {{#if posts}}
+          <div class="pagination d-flex justify-content-center my-4">
+              <ul class="nav">
+                   {{#if startIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{startIndex}}" class="nav-link bg-danger mr-1 text-white"> <i class="fa fa-angle-double-left"> Previous Posts</i></a> 
+                 </li>
+                    {{/if}}
+                     {{#if nextIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{nextIndex}}" class="nav-link bg-danger mr-1 text-white"> Next Posts <i class="fa fa-angle-double-right"></i></a> 
+               </li>  
+               {{/if}}
+              </ul>
+          </div>
+          <!--pagination end-->
+          {{/if}}
+    </div>
+<!--for users search-->
+<div class="container text-center my-4">
+  {{#if users}}
+  <p class="text-center">Search results for <span class="text-danger">{{query}}</span></p>
+  
+   {{/if}}
+    {{#each users}}
+    <div class="card mb-2">
+        <div class="card-header">
+            <h5 class="">{{username}} Profile</h5>
+        </div>
+        <div class="container d-flex justify-content-between my-1">
+          <a href="/email/{{slug}}" class=""><span class="badge badge-primary p-2"> <i class="fa fa-envelope-open"></i> Email {{username}} </span></a>
+      <a href="/edit/{{slug}}" class=""><span class="badge badge-primary p-2"> <i class="fa fa-edit"></i> Edit {{user.username}} </span></a>
+       </div>    
+       <div class="card-body">
+       <p class="text" >Username: <span class ="myUser">{{username}}</span></p>
+       <p class="text" >Gender: <span class ="myUser">{{gender}}</span></p>
+     <p class="text" >Email: <span class ="myUser">{{email}}</span></p>
+     <p class="text" >Admin: <span class ="myUser">{{isAdmin}}</span></p>
+     <p class="text" >Super Admin: <span class ="myUser">{{superAdmin}}</span></p>
+
+       <p class="text" >Date of Registration: <span class ="myUser">{{formatTime date " h:mm a DD/MM/YYYY"}}</span></p>
+       
+       </div> 
+        <div class="container d-flex justify-content-between my-2">
+          <a href="/admin/userDelete/{{_id}}" class=""><span class="badge badge-danger p-2"> <i class="fa fa-trash"></i> Delete {{username}} </span></a>
+
+          <a href="/" class=""><span class="badge badge-primary p-2">Go to admin dashboard </span></a>
+       </div>
+    </div>
+   {{/each}}
+        {{#if users}}
+   <!--pagination start-->
+     <div class="pagination d-flex justify-content-center mt-5">
+              <ul class="nav">
+                  {{#if startIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{startIndex}}" class="nav-link bg-danger mr-1"> <i class="fa fa-angle-double-left"> Previous Users</i></a> 
+                 </li>
+                 {{/if}}  
+                 {{#if nextIndex}} 
+                 <li class="nav-item">
+                  <a href="?page={{nextIndex}}" class="nav-link bg-danger mr-1"> Next Users <i class="fa fa-angle-double-right"></i></a> 
+               </li>  
+               {{/if}}
+           
+              </ul>
+           </div>
+           <!--pagination end-->
+           {{/if}}
+       </div>
+
+<!--comments -->
+<div class="container text-center my-4">
+   {{#if comments}}
+  <p class="text-center">Search results for <span class="text-danger">{{query}}</span></p>
+  
+   {{/if}}
+    {{#each comments}}
+    <div class="card mb-2">
+        <div class="card-header">
+            <h5 class=""> Comment</h5>
+        </div>
+         
+       <div class="card-body">
+       <p class="text" >CommentBody</p> 
+     <span class ="myUser">{{commentBody}}</span>
+       <p class="text" >Comment By</p>
+     <span class ="myUser">{{username}}</span>
+     <p class="text" >Date Posted</p>
+      <span class ="myUser">{{formatTime commentDate " h:mm a DD/MM/YYYY"}}</span>
+     <p class="text" >Post Title </p>
+       <a href="/post/{{postId}}"><span class ="">{{postId}}</span></a>
+     
+       </div> 
+        <div class="container d-flex justify-content-between my-2">
+          <a href="/post/{{postId}}/delete/comment/{{_id}}" class=""><span class="badge badge-danger p-2"> <i class="fa fa-trash"></i> Delete Comment </span></a>
+       
+          <a href="/" class=""><span class="badge badge-primary">Go to admin dashboard </span></a>
+       </div>
+    </div>
+   {{/each}}
+
+     <!--pagination begins-->
+            {{#if comments}}
+          <div class="pagination d-flex justify-content-center my-4">
+              <ul class="nav">
+                   {{#if startIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{startIndex}}" class="nav-link bg-danger mr-1 text-white"> <i class="fa fa-angle-double-left"> Previous Comments</i></a> 
+                 </li>
+                    {{/if}}
+                     {{#if nextIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{nextIndex}}" class="nav-link bg-danger mr-1 text-white"> Next Comments <i class="fa fa-angle-double-right"></i></a> 
+               </li>  
+               {{/if}}
+              </ul>
+          </div>
+          {{/if}}
+          <!--pagination end-->
+</div>
+
+
+
+<style>
+    .myUser{
+        color:red;
+        font-weight: bold;
+        text-align: center;
+    }
+    .card{
+        background: ghostwhite;
+    }
+    .text{
+        color: black;
+    }
+       /*for pagination*/ 
+   .pagination a{
+        color:white;
+    }
+    
+</style>
+
+ {{>_adm_foot}}

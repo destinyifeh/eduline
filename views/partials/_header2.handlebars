@@ -1,0 +1,115 @@
+  <!-- header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="d-flex header-agile">
+                            {{#if user}}
+                            <li>
+                                <span class="fas fa-envelope-open"></span>
+                                <a href="mailto:edulineportal@gmail.com" class="text-white">Get in touch with us</a>
+                            </li>
+                            <li>
+                                <span class="fas fa-user-circle"></span>
+                                <p class="d-inline text-white">welcome! {{viewer.username}}</p>
+                            </li>
+                            {{ else }}
+                              <li>
+                                <span class="fas fa-envelope-open"></span>
+                                <a href="mailto:edulineportal@gmail.com" class="text-white">Get in touch with us</a>
+                            </li>
+                            <li>
+                                <span class="fas fa-phone-volume"></span>
+                                <p class="d-inline text-white"> Always available</p>
+                                
+                            </li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                    <div class="col-md-6 hearder-right-agile">
+                        <div class="d-flex">
+                            <!-- Multiple select filter -->
+                            <select class="custom-select" onchange="location=this.value;" id="selectbox">
+                                <option value="www.google.com">Programming </option>
+                                <option value="jQuery">Art & Design</option>
+                                <option value="Pug">Languages</option>
+                                <option value="SASS">UX Training</option>
+                                <option value="Angular">Business</option>
+                                <option value="React">Vocabulary</option>
+                              
+                            </select>
+                            <!-- Multiple select filter  -->
+                            <div class="login-wthree my-auto">
+                                {{#if user}}
+                                <a href="/logout" class="text-white text-capitalize"> <span class="fas fa-sign-out-alt flash animated infinite"></span>Logout</a>
+                               {{ else }}
+                       <a href="/login" class="text-white text-capitalize">login <span class="fas fa-sign-in-alt flash animated infinite"></span></a>
+
+                              {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <h1><a class="navbar-brand" href="/">
+                            <span>E</span>duline
+                            <i class="w3-spacing"></i>
+                            <span></span>
+                        </a></h1>
+                    <button class="navbar-toggler ml-lg-auto ml-sm-5" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav text-center ml-auto">
+                            {{#if user}}
+                            <li class="nav-item active  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/" data-txthover="Home">Home</a>
+                            </li>
+                            <li class="nav-item  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/profile" data-txthover="Profile">Profile</a>
+                            </li>
+                            <li class="nav-item  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/posts" data-txthover="Posts">Posts</a>
+                            </li>
+                            <li class="nav-item dropdown mr-lg-3 my-lg-0 my-4" >
+                                <a class=" hover-fill" data-txthover="Categories " href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Categories
+                                </a>
+                                <i class="fa fa-caret-down " id="testo" ></i>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                     <a class="hover-fill" href="/news" data-txthover="News">News
+                                    </a>
+                                    <a class="hover-fill" href="/scholarship" data-txthover="Scholarship">Scholarship</a>
+                                   
+                                    <a class="hover-fill" href="/jamb" data-txthover="Jamb">Jamb</a>
+                                    <a class="hover-fill" href="/event" data-txthover="Event">Event
+                                        </a>
+                                  
+                                 </li>
+                          
+                            {{ else }}
+                               <li class="nav-item active  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/" data-txthover="Home">Home</a>
+                            </li>
+                            <li class="nav-item  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/about" data-txthover="About">About</a>
+                            </li>
+                            <li class="nav-item  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/contact" data-txthover="Contact">Contact</a>
+                            </li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- //header -->
+   <!-- flash message-->

@@ -1,0 +1,101 @@
+#logout{
+    color: white;
+}
+
+
+#log{
+  color: white;
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker{
+50%{
+  opacity: 0;
+}
+}
+
+#side1{
+    min-height: 80vh;
+    background: black;
+}
+#times{
+    padding:10px;
+}
+
+#header2{
+    box-shadow: 0px 2px 2px grey;
+    position: sticky;
+}
+#header1{
+    background:black ;
+}
+.fas i{
+    color: rgb(119, 119, 172);
+}
+.sch{
+    border: 1px solid ghostwhite;
+    padding:2px;
+    color: white;
+}
+
+#bellNote{
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+#userNote{
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+#emailNote{
+  margin-left: 1em;
+  cursor: pointer;
+}
+#footerAdmin{
+    background: black;
+}
+#notebox{
+  display:none;
+}
+#notebox1{
+  display: none;
+}
+#notebox2{
+  display: none;
+}
+#noti{
+  background: pink;
+  width: 200px;
+  padding:10px;
+  
+}
+#tim{
+   cursor: pointer;
+}
+#tim1{
+  cursor: pointer;
+}
+#tim2{
+  cursor: pointer;
+}
+#newsi{
+  font-weight: bold;
+}
+@media screen and (max-width: 576px){
+   
+#mesNote{
+    margin-right: 0em;
+}
+
+#bellNote{
+  margin-right: 0em;
+}
+
+#userNote{
+  margin-right: 0em;
+}
+
+#emailNote{
+  margin-left: 0em;
+}
+}

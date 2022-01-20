@@ -1,0 +1,374 @@
+    {{>_header}}
+    {{>_msg}}
+ <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+   <!-- banner -->
+    <!-- Carousel -->
+    <div class="row justify-content-center align-items-center no-gutters banner-agile">
+        <div class="col-lg-8">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item bg1 active">
+                        <div class="bnr-text-wthree">
+                            <h3 class="b-w3ltxt">get access to all </h3>
+                            <p class="mx-auto text-capitalize mt-2 text-white">education and scholarship portal</p>
+                        </div>
+                    </div>
+                    <!-- slider text -->
+                    <div class="carousel-item bg2">
+                        <div class="bnr-text-wthree">
+                            <h3 class="b-w3ltxt">be part of us</h3>
+                            <p class="mx-auto text-capitalize mt-2 text-white">education and scholarship portal</p>
+                        </div>
+                    </div>
+                    <!-- slider text -->
+                    <div class="carousel-item bg3">
+                        <div class="bnr-text-wthree">
+                            <h3 class="b-w3ltxt">always online for you</h3>
+                            <p class="mx-auto text-capitalize mt-2 text-white">education and scholarship portal</p>
+                        </div>
+                    </div>
+                    <!-- slider text -->
+                </div>
+            </div>
+            <!-- Carousel -->
+            <!-- //banner -->
+        </div>
+        <div class="col-lg-4">
+            <div class="wthree-form">
+                <h4 class="text-center">become a member </h4>
+                <p class="login-sub text-center"> Register now to have access to all our contents!</p>
+                <form action="/register" method="POST" class="register-wthree">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                  <span class="fas fa-user"></span>
+                                <label>
+                                    User name
+                                </label>
+                                <input class="form-control" type="text" placeholder="Your username" name="username" required="required" value="{{username}}">
+                            </div>
+                            <div class="col-md-6 mt-md-0 mt-2">
+                              <span class="fas fa-user"></span>
+
+                                      <label>
+                                    Gender
+                                </label>
+                                <select name="gender" class="form-control" id="" required="required" >
+                                    {{#select gender}}
+                                   <option value="select">Select</option> 
+                                   <option value="m">Male</option>
+                                   <option value="f">Female</option>
+                                   {{/select}}
+                                   </select>
+                               
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span class="fas fa-envelope-open"></span>
+                                <label>
+                                    Email
+                                </label>
+                                <input class="form-control" type="email" placeholder="Your email" name="email"
+                                    required="required" value="{{email}}">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span class="fas fa-lock"></span>
+                                <label>
+                                    password
+                                </label>
+                                <input type="password" class="form-control" placeholder="*******" name="password" id="password1"
+                                    required="required">
+                               </div>
+                            <div class="col-md-6 mt-md-0 mt-2">
+                               <span class="fas fa-lock"></span>
+                                <label>
+                                    confirm password
+                                </label>
+                                <input type="password" class="form-control" placeholder="*******" name="password2" id="password2"
+                                    required="required">
+                               
+                            </div>
+                        </div>
+                    </div>
+                      {{#if user.superAdmin}}
+                     <!-- for admin -->
+                      <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span class="fas fa-users"></span>
+                                <label>
+                                    adminCode
+                                </label>
+                                <input class="form-control" type="text" placeholder="abc123" name="adminCode"
+                                 value="{{adminCode}}" >
+                            </div>
+                        </div>
+                    </div>
+                    <!--admin end-->
+                    {{/if}}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-agile btn-block w-100">register</button>
+                    </div>
+                </form>
+            
+                
+            </div>
+        </div>
+    </div>
+    <!-- //carousel -->
+    <!-- //banner -->
+    <!-- about -->
+    <div class="container mt-4 mb-2 text-center">
+        <a href="/scholarship/application" id="applying"><h5>Apply For Jambites 2021 Scholarship Program  </h5></a>
+    </div>
+  
+     {{#if post1}}
+    <div class="container">
+            <div class="title-section pb-4">
+                <h3 class="main-title-agile mt-5">Trending </h3>
+                <div class="title-line">
+                </div>
+            </div>
+            </div>
+            {{/if}}
+             {{#each post1}}
+        <div class="row justify-content-center align-items-center no-gutters abbot-main">
+            <div class="col-lg-6 p-0 ">
+               <a href="/post/{{slug}}"><img src="{{image.[0]}}"  id="postimage"></a>
+            </div>
+            <div class="col-lg-6 p-0 abbot-right">
+                <div class="card">
+                    <div class="card-body px-sm-5 px-3 py-4">
+                       
+                 <a href="/post/{{slug}}"><h3 class="about-sub-title card-title align-self-center pt-sm-0 pt-3" id="tit">{{title}}</h3></a>
+                        <span class="w3-line"></span>
+                        <p class="card-text align-self-center my-3">{{{ truncate detail 150}}} </p>
+                        <a href="/post/{{slug}}">Read More<i class="fa fa-angle-double-right" id="bee"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{#each post2}}
+        <div class="row  align-items-center no-gutters abbot-grid2">
+            <div class="col-lg-6 py-lg-3 px-sm-5 px-3 py-4 abbot-right order-lg-0 order-1">
+               
+                 <a href="/post/{{slug}}"><h3 class="about-sub-title card-title align-self-center pt-sm-0 pt-3" id="tit">{{title}}</h3></a>
+                <span class="w3-line"></span>
+                <span class="w3-line mx-auto text-center d-block"></span>
+                <p class="card-text align-self-center my-3">{{{ truncate detail 150}}}</p>
+                        <a href="/post/{{slug}}">Read More<i class="fa fa-angle-double-right" id="bee"></i></a>
+            </div>
+            <div class="col-lg-6 p-0  order-lg-1 order-0">
+               <a href="/post/{{slug}}"><img src="{{image.[0]}}"  id="postimage"></a>
+            </div>
+        </div>
+        {{/each}}
+        {{#each post3}}
+        <div class="row justify-content-center align-items-center no-gutters abbot-main">
+            <div class="col-lg-6 p-0  ">
+               <a href="/post/{{slug}}"><img src="{{image.[0]}}"  id="postimage"></a>
+            </div>
+            <div class="col-lg-6 p-0 abbot-right">
+                <div class="card">
+                    <div class="card-body px-sm-5 px-3 py-4">
+                      
+                 <a href="/post/{{slug}}"><h3 class="about-sub-title card-title align-self-center pt-sm-0 pt-3" id="tit">{{title}}</h3></a>
+                        <p class="card-text align-self-center my-3">{{{ truncate detail 150}}}</p>
+                        <a href="/post/{{slug}}">Read More<i class="fa fa-angle-double-right" id="bee"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    
+     <div class="container my-4 text-center">
+        <span class="badge badge-danger p-1"><a class="trendBlink text-white" href="/posts">More Trending Posts <i class="fa fa-angle-double-right" ></i></a></span>
+     </div>
+      <section class="wthree-row py-sm-5 py-2 about-top" id="ab-bot">
+        <div class="container pt-lg-2">
+            <div class="title-section pb-4">
+                <h3 class="main-title-agile">about eduline</h3>
+                <div class="title-line">
+                </div>
+            </div>
+            <div class="agileits-top-row row py-md-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="agileits-about-grids">
+                        <span class="fas fa-book-reader text-color1"></span>
+                        <h4>university
+                            <span></span>
+                        </h4>
+                        <p>Get latest university admission news, jamb, scholarships, entrance exminations
+                         </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6  mb-lg-0 mb-4">
+                    <div class="agileits-about-grids">
+                        <span class="fas fa-graduation-cap text-color2"></span>
+                        <h4>graduation
+                            <span></span>
+                        </h4>
+                        <p>Get latest news and updates on graduations, convocations,
+                        and other ceremonies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="agileits-about-grids">
+                        <span class="fas fa-bezier-curve text-color3"></span>
+                        <h4>Connect
+                            <span></span>
+                        </h4>
+                        <p>We make it easy for you to connect with the latest happenings in education
+                            .</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+    <!-- stats -->
+    <section class="agile_stats mt-0">
+        <div class="container">
+            <div class="title-section pb-4">
+                <h3 class="main-title-agile">why Register with us?</h3>
+                <div class="title-line">
+                </div>
+            </div>
+            <div class="row my-sm-5">
+                <div class="col-lg-4">
+                    <ul class="list-group mt-lg-3 pb-lg-0 pb-3 wcu-even">
+                        <li class="list-group-item border-0">
+                            <i class="fas fa-check mr-3"></i>University News </li>
+                        <li class="list-group-item border-0">
+                            <i class="fas fa-check mr-3"></i>Jamb Updates</li>
+                        <li class="list-group-item border-0">
+                            <i class="fas fa-check mr-3"></i>Admission Updates</li>
+                       
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <ul class="list-group mt-3 pb-lg-0 pb-3 wcu-even flex-column-reverse">
+                        <li class="list-group-item border-0">
+                            <i class="fas fa-check mr-3"></i>School Events </li>
+                        <li class="list-group-item border-0">
+                            <i class="fas fa-check mr-3"></i>Scholarships</li>
+                        <li class="list-group-item border-0">
+                            <i class="fas fa-check mr-3"></i>Informations</li>
+                       
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <ul class="list-group mt-3">
+                        <li class="list-group-item border-0">
+                            <i class="fas fa-check mr-3"></i>Entrance Examinations </li>
+                        <li class="list-group-item border-0">
+                            <i class="fas fa-check mr-3"></i>Opportunities</li>
+                        <li class="list-group-item border-0">
+                            <i class="fas fa-check mr-3"></i>Students</li>
+                       
+                    </ul>
+                </div>
+            </div>
+            <div class="container pt-5">
+                <div class="title-section pb-4  text-center">
+                    <h3 class="main-title-agile">We are here to give you the best</h3>
+                    <span class="bg-theme"></span>
+                </div>
+                <div class="row stat-row  position-relative text-center">
+                    <img src="/images/slide.jpg" alt="" class="img-fluid position-absolute" />
+                    <div class="col-lg-3 col-md-6">
+                        <div class="counter py-4 px-3 bg1-theme">
+                            <i class="far fa-smile"></i>
+                            <p class="count-text text-capitalize">satisfied students</p>
+                           <span><div class="timer count-title count-number mt-2" data-to="9890" data-speed="1500"></div><h4 class="text-white">Plus</h4></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mt-md-0 mt-sm-5 mt-3">
+                        <div class="counter py-4 px-3 bg2-theme">
+                            <i class="fab fa-slideshare"></i>
+                            <p class="count-text text-capitalize">Beneficiaries</p>
+                           <span><div class="timer count-title count-number mt-2" data-to="6799" data-speed="1500"></div><h4 class="text-white">Plus</h4></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mt-lg-0 mt-sm-5 mt-3">
+                        <div class="counter py-4 px-3 bg3-theme">
+                            <i class="fas fa-layer-group"></i>
+                            <p class="count-text text-capitalize">available Contents</p>
+                         <span><div class="timer count-title count-number mt-2" data-to="733" data-speed="1500"></div><h4 class="text-white">Plus</h4></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mt-lg-0  mt-sm-5 mt-3">
+                        <div class="counter py-4 px-3 bg4-theme">
+                            <i class="fas fa-award"></i>
+                            <p class="count-text text-capitalize">years of experience</p>
+                           <span><div class="timer count-title count-number mt-2" data-to="10" data-speed="1500"></div><h4 class="text-white">Plus</h4></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //stats -->
+  {{>_footer}}
+
+<style>
+    #postimage{
+        width:49.5vw;
+        height: 600px;
+    }
+    #bee{
+      font-size: 13px;
+      color:red;
+    }
+    #tit{
+        text-transform: capitalize;
+    }
+    #applying{
+        text-decoration: underline;
+    }
+    .trendBlink{
+    
+    font-weight: bold;
+    animation: blinker 2s linear infinite;
+
+  }
+    @keyframes blinker{
+  50%{
+    opacity: 0;
+  }
+  }
+    @media screen and (max-width: 768px){
+          #postimage{
+          width:100%;
+          height: 35vh;
+    }
+  
+    }
+     @media screen and (max-width: 576px){
+          #postimage{
+          width:100%;
+          height: 35vh;
+    }
+    #gender{
+        width:90x;
+        max-width:90px;
+    }
+    }
+</style>

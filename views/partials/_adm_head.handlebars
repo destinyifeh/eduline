@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="/css/admin.css">
+
+<div class="container-flex p-3" id="header1">
+ <div class="container d-flex justify-content-between ">
+  
+  <span>
+      <a href="/scholarship/index" class="sch">Main</a>
+
+     </span>   
+    
+   
+  <span class="fas">
+
+       <i class="fa fa-users" id="userNote">{{notifications.length}}</i>
+            
+
+     </span> 
+     
+      
+     <span>
+
+       <a href="/logout" id="logout">logout <i class="fa fa-sign-in-alt" id="log"></i></a>
+     </span>
+ </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-3" id="header2">
+    <a class="navbar-brand mr-lg-5" href="/admin/dashboard">Eduline Admin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarContent">
+        <ul class="navbar-nav mr-auto ">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/post/new">Add Post</a>
+            </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/saved/posts">Saved Posts</a>
+            </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/posts">Published </a>
+            </li>
+             
+        </ul> 
+       <ul class="navbar-nav mr-auto ">
+            <li class="nav-item active">
+                <a class="nav-link" href="/admin/users">users</a>
+            </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/admin/posts">Posts</a>
+            </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/admin/comments">Comments</a>
+            </li>
+             
+        </ul> 
+        <!--others-->
+        <ul class="navbar-nav mr-auto ">
+           <li class="nav-item active">
+                <a class="nav-link" href="/scholarship/index">Scholarship Page</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/scholarship/selected">Selected</a>
+            </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="https://analytics.google.com/analytics/web/#/p272187441/realtime/overview?params=_u..nav%3Ddefault" target="_blank">Analytics</a>
+            </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/scholarship/jambites" target="_blank">Share </a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+ 
+ <div class="container-flex" id="notebox">
+   <h5 class="text-center"></h5>
+     {{#if notifications}}
+           <p class="text-center mt-2" id="newsi">New signup <i class="fa fa-times" id="tim"></i></p>
+           {{/if}}
+        {{#each notifications}}
+ <div class="container text-center my-3" id="noti">
+           
+           <p class="">{{username}} <span class="text-danger">{{gender}}</span></p>
+           <a href="/user/notification/{{slug}}">more details</a>
+           <a href="/delete/note/{{slug}}">delete</a>
+         </div>   
+         {{/each}}
+ </div>
+ 
+    
+
+
+  <script src="/js/bootstrap.js"></script>
+     <!-- js-->
+  <script src="/js/jquery-2.2.3.min.js"></script>
+  <script src="/js/admin.js"></script>

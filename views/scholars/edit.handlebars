@@ -1,0 +1,26 @@
+     
+     {{>_adm_head}}      
+      <div class="container my-4">
+          <form action="/scholarship/scholar/{{scholar.id}}?_method=PUT" method="POST">
+          <input type="hidden" value="PUT" name="_method">
+          <h5 class="text-center">Update Scholarship Info</h5>
+          
+           
+                     {{#if scholar.isScholar}}
+                      <div class="form-group">
+                   <input class="" type="checkbox"  name="isScholar" value="{{scholar.isScholar}}" checked="checked" > 
+                   <label>isScholar</label>
+                      </div>
+                      {{ else }}
+                         <div class="form-group">
+                   <input class="" type="checkbox"  name="isScholar"  > 
+                   <label>isScholar</label>
+           
+                    </div>
+                    {{/if}}
+                    <div class="form-group">
+                        <button class="btn btn-danger">Update</button>
+                    </div>
+               </form>
+      </div>
+

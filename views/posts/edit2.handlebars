@@ -1,0 +1,84 @@
+    {{>_header}}
+   {{>_msg}}
+  
+
+<div class="container my-4">
+  <h5 class="text-center">Add New Post</h5>
+ <form action="/update_post/post/{{post.slug}}?_method=PUT" method="POST" enctype="multipart/form-data">
+ <input type="hidden" value="PUT" name="_method">
+  <div class="form-group d-sm-flex justify-content-end" >
+       <label for="category" id="labelPost" class="mr-3 mt-2">Post Status</label>
+     <select name="status" class="form-control" id="selectPost" style="width: 200px !important; min-width: 200px; max-width: 200px;">
+      {{#select post.status}}
+    <option value="published">Publish post</option>
+    <option value="saved">Save post</option>
+   {{/select}}
+     </select>
+    
+  </div>
+ <div class="form-group">
+     <label for="title" id="labelPost">Post Title</label>
+     <input type="text" name="title" class="form-control" value="{{post.title}}" required>
+ </div>
+ <div class="form-group">
+     <label for="image" id="labelPost">Upload Post Image</label><br>
+     <input type="file"  name="image" multiple="multiple" require="required" >
+      <p class="text-danger">maximum of 4 images can be uploaded at once</p>
+ </div>
+
+ <div class="form-group" >
+       <label for="category" id="labelPost">Post Category</label>
+     <select name="category" class="form-control" id="selectPost" style="width: 200px !important; min-width: 200px; max-width: 200px;" required >
+       {{#select post.category}}
+        <option value="select">Select </option>  
+    <option value="news">News</option>
+    <option value="jamb">Jamb</option>
+    <option value="scholarship">Scholarship</option>
+     <option value="admision">Admission</option>
+  <option value="event">Event</option>
+     {{/select}} 
+     </select>
+  
+ </div>
+ <div class="form-group">
+     {{#if post.allowComment}}
+   <input type="checkbox"  name="allowComment" checked="checked" value="{{post.allowComment}}">
+   <label  for="allowComment" id="labelPost">Comment is on</label>
+   {{ else }}
+      <input type="checkbox"  name="allowComment" value="{{post.allowComment}}">
+       <label  for="allowComment" id="labelPost">Comment is off</label>
+   {{/if}}
+ </div><br>
+  <div class="form-group">
+      <label for="detail" id="labelPost">Post Detail</label>
+   <textarea class="form-control" rows="15" name="detail" id="detail" required>{{post.detail}}</textarea>
+ </div>
+ <div class="form-group mb-5">
+  <button type="submit" class="btn btn-agile btn-block d-block mx-auto" id="postBtn">Update Post</button>
+
+ </div>
+ </form>
+</div>
+
+<style>
+  #labelPost:hover{
+      color: red;
+  }
+  #selectPost{
+     width: 200px;
+  }
+  #postBtn{
+    max-width: 300px;
+   
+  }
+ 
+  
+ 
+</style>
+
+
+
+
+
+
+{{>_footer}}

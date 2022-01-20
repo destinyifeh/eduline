@@ -1,0 +1,19 @@
+{{>_adm_head}}
+ <div class="container my-5">
+    <div class="row text-center">
+        <div class="col-sm-6">
+            <h5 class="">State of Applicants</h5>
+             {{#each more}}
+            <p class="text-danger"> {{state}}</p>
+            {{/each}}
+        </div>
+         
+          <div class="col-sm-6">
+            <h5 class="">Choice of Institutions  </h5>
+            {{#each more}}
+            <p class="text-danger">{{choice}}</p>
+            {{/each}}
+        </div>
+    </div>
+</div>
+ {{>_adm_foot}}

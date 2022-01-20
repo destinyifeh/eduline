@@ -1,0 +1,19 @@
+{{>_header}}
+              <div class="container my-4">
+             <div class="leave-coment-form">
+                        <h3 class="courses-title  mb-4">Leave a Reply</h3>
+                        <form action="/post/{{post.slug}}/comment" method="POST">
+                           <div class="form-group">
+                                <textarea name="commentBody" class="form-control" placeholder="Your comment here..."
+                                    required=""></textarea>
+                            </div>
+                            <div class="mm_single_submit">
+                                <input type="submit" value="Post Comment">
+                            </div>
+                        </form>
+                    </div>
+                  
+                 </div>
+              
+
+  {{>_footer}}               

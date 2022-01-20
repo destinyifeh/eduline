@@ -1,0 +1,38 @@
+    {{>_header}}
+
+
+<div class="container text-center my-4">
+   
+    <div class="card">
+        <div class="card-header">
+            <h5 class="">Your Profile</h5>
+        </div>
+        <div class="container d-flex justify-content-between my-1">
+          <a href="/delete" class=""><span class="badge badge-danger p-2"> <i class="fa fa-trash"></i> Deactivate Account </span></a>
+       
+          <a href="/" class=""><span class="badge badge-primary p-2">Go to homepage </span></a>
+       </div>
+       <div class="card-body">
+       <p class="text" >Username: <span class ="myUser">{{user.username}}</span></p>
+       <p class="text" >Gender: <span class ="myUser">{{user.gender}}</span></p>
+     <p class="text" >Email: <span class ="myUser">{{user.email}}</span></p>
+
+       <p class="text" >Date of Registration: <span class ="myUser">{{formatTime user.date "DD/MM/YYYY"}}</span></p>
+       </div> 
+    </div>
+  
+</div>
+{{>_footer}}
+<style>
+    .myUser{
+        color:red;
+        font-weight: bold;
+        text-align: center;
+    }
+    .card{
+        background: ghostwhite;
+    }
+    .text{
+        color: black;
+    }
+</style>

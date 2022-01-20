@@ -1,0 +1,128 @@
+ {{>_header2}}
+
+ {{>_msg}}
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel='stylesheet' type='text/css' />
+   
+  <!-- banner -->
+    <!-- Carousel -->
+    <div class="row justify-content-center align-items-center no-gutters banner-agile">
+        <div class="col-lg-8">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item bg1 active">
+                        <div class="bnr-text-wthree">
+                            <h3 class="b-w3ltxt">get access to all </h3>
+                            <p class="mx-auto text-capitalize mt-2 text-white">education and scholarship portal</p>
+                        </div>
+                    </div>
+                    <!-- slider text -->
+                    <div class="carousel-item bg2">
+                        <div class="bnr-text-wthree">
+                            <h3 class="b-w3ltxt">be part of us</h3>
+                            <p class="mx-auto text-capitalize mt-2 text-white">education and scholarship portal</p>
+                        </div>
+                    </div>
+                    <!-- slider text -->
+                    <div class="carousel-item bg3">
+                        <div class="bnr-text-wthree">
+                            <h3 class="b-w3ltxt">always online for you</h3>
+                            <p class="mx-auto text-capitalize mt-2 text-white">education and scholarship portal</p>
+                        </div>
+                    </div>
+                    <!-- slider text -->
+                </div>
+            </div>
+            <!-- Carousel -->
+            <!-- //banner -->
+        </div>
+        <div class="col-lg-4">
+            <div class="wthree-form">
+                <h4 class="text-center">Update User</h4>
+                <p class="login-sub text-center"> Update user {{user.username}} details!</p>
+                <form action="/user/{{user.slug}}?_method=PUT" method="POST" class="register-wthree">
+                <input type="hidden" name="_method" value="PUT">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                  <span class="fas fa-user"></span>
+                                <label>
+                                    User name
+                                </label>
+                                <input class="form-control" type="text" placeholder="Johnson" name="username" required="required" value="{{user.username}}">
+                            </div>
+                            <div class="col-md-6 mt-md-0 mt-2">
+                              <span class="fas fa-user"></span>
+
+                                      <label>
+                                    Gender
+                                </label>
+                                <select name="gender" class="form-control" id="gender" required="required" >
+                                    {{#select user.gender}}
+                                   <option value="select">Select</option> 
+                                   <option value="m">Male</option>
+                                   <option value="f">Female</option>
+                                   {{/select}}
+                                   </select>
+                               
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span class="fas fa-envelope-open"></span>
+                                <label>
+                                    Email
+                                </label>
+                                <input class="form-control" type="email" placeholder="example@email.com" name="email"
+                                    required="required" value="{{user.email}}">
+                            </div>
+                        </div>
+                    </div>
+                   
+                     <!-- for admin -->
+                      <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span class="fas fa-users"></span>
+                                <label>
+                                    adminCode
+                                </label>
+                                <input class="form-control" type="text" placeholder="abc123" name="adminCode" 
+                                value="{{user.adminCode}}">
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!--admin end-->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-agile btn-block w-100">update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+         
+
+    <!-- //carousel -->
+    <!-- //banner -->
+    {{>_footer2}}
+   
+   <style>
+ @media screen and (max-width: 576px){
+        
+    #gender{
+        width:90x;
+        max-width:90px;
+    }
+    }
+   </style>

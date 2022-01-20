@@ -1,0 +1,139 @@
+ <!-- header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="d-flex justify-content-center header-agile">
+                            {{#if user}}
+                            <li>
+                                <a href="/" class="text-white" >Welcome</a>
+                            </li>
+                            <li>
+                                <span class="fas fa-user-circle" ><p class="d-inline text-white"> {{user.username}}</p></span>
+                            </li>
+                             <li>
+                                <a href="/logout" class="text-white text-capitalize">Logout <span class="fas fa-sign-out-alt flash animated infinite" id="log320"></span></a>
+                            </li>
+                            {{ else }}
+                              <li>
+                                <a href="/" class="text-white " >Welcome</a>
+                            </li>
+                            <li>
+                                <span class="fas fa-user-circle"><p class="d-inline text-white"> Guest</p></span>
+                                
+                            </li>
+                              <li>
+                       <a href="/register" class="text-white text-capitalize">Register <span class="fas fa-sign-up-alt flash animated infinite"></span></a>
+                            </li>
+                             <li>
+                       <a href="/login" class="text-white text-capitalize">login <span class="fas fa-sign-in-alt flash animated infinite"></span></a>
+                            </li>
+                            {{/if}}
+                            {{#if user.isAdmin}}
+                            <li>
+                              
+                                <p class="d-inline text-white"><a href="/admin/dashboard" class="ml-2 d-none d-lg-inline">Admin Dashboard</a></p>
+                            </li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                    <div class="col-md-6 hearder-right-agile">
+                        <div class="d-flex">
+                            <!-- Multiple select filter -->
+                          
+                              <form action="/search" method="GET" class="my-2 mx-auto">
+                           <input type="search" name="query" class="form-contol" placeholder="Search... type & hit enter key..." id="frontSearch">
+                           </form>
+                            <!-- Multiple select filter  -->
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <h1><a class="navbar-brand" href="/">
+                            <span>E</span>duline
+                            <i class="w3-spacing"></i>
+                            <span></span>
+                        </a></h1>
+                    <button class="navbar-toggler ml-lg-auto ml-sm-5" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav text-center ml-auto">
+                            {{#if user}}
+                            <li class="nav-item active  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/" data-txthover="Home">Home</a>
+                            </li>
+                            <li class="nav-item  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/profile" data-txthover="Profile">Profile</a>
+                            </li>
+                            <li class="nav-item  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/posts" data-txthover="Posts">Posts</a>
+                            </li>
+                            <li class="nav-item dropdown mr-lg-3 my-lg-0 my-4" >
+                                <a class=" hover-fill" data-txthover="Categories " href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Categories
+                                </a>
+                                <i class="fa fa-caret-down " id="testo" ></i>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                     <a class="hover-fill" href="/news" data-txthover="News">News
+                                    </a>
+                                    <a class="hover-fill" href="/scholarship" data-txthover="Scholarship">Scholarship</a>
+                                     <a class="hover-fill" href="/admission" data-txthover="Admission">Admission</a>
+
+                                    <a class="hover-fill" href="/jamb" data-txthover="Jamb">Jamb</a>
+                                    <a class="hover-fill" href="/event" data-txthover="Event">Event
+                                        </a>
+                                  
+                                 </li>
+                              
+                            {{ else }}
+                               <li class="nav-item active  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/" data-txthover="Home">Home</a>
+                            </li>
+                            <li class="nav-item  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/about" data-txthover="About">About</a>
+                            </li>
+                            <li class="nav-item  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/contact" data-txthover="Contact">Contact</a>
+                            </li>
+                            {{/if}}
+                               {{#if user.isAdmin}}
+                            <li class="nav-item  mr-lg-3 mt-lg-0 mt-4">
+                                <a class="hover-fill" href="/admin/dashboard" data-txthover="Admin Dashboard">Admin Dashboard</a>
+                            </li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- //header -->
+<style>
+    .fa-caret-down:hover{
+        color:red;
+    }
+    #frontSearch{
+        border-radius:20px;
+        padding: 5px;
+    }
+  
+</style>
+<script>
+    document.getElementById('navbarDropdown').addEventListener('mouseover', function(){
+        document.getElementById('testo').style.color='red';
+      
+    });
+     document.getElementById('navbarDropdown').addEventListener('mouseout', function(){
+        document.getElementById('testo').style.color='black';
+      
+    });
+</script>

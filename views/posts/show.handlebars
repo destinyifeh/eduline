@@ -1,0 +1,362 @@
+  
+    
+   {{>_header}}
+     {{>_msg}}
+  <!-- //header -->
+    <!-- inner banner -->
+    <div class="inner-banner-w3ls text-right d-flex align-items-center">
+        <div class="container">
+            <h6 class="agileinfo-title">Single Post </h6>
+            <ol class="breadcrumb-parent d-flex justify-content-end">
+                <li class="breadcrumb-nav">
+                    <a href="/">Home</a>
+                </li>
+                <li class="breadcrumb-nav">
+                    <a href="/posts">Posts</a>
+                </li>
+                <li class="breadcrumb-nav active  text-capitalize" aria-current="page"></li>
+            </ol>
+        </div>
+    </div>
+    <!-- //inner banner -->
+    <!-- single -->
+     <div class="container mt-4 mb-2 text-center">
+        <a href="/scholarship/application" id="applying"><h5>Apply For Jambites 2021 Scholarship Program  </h5></a>
+    </div>
+    <div class="single-w3l py-5">
+        <div class="container py-xl-5 py-lg-3">
+            <div class="title-section pb-4">
+                <h3 class="main-title-agile">Post in Detail</h3>
+                <div class="title-line">
+                </div>
+            </div>
+            <div class="row inner_sec_info pt-md-4">
+                <!-- left side -->
+                <div class="col-lg-8 single-left">
+                    <div class="single-left1">
+                       <a href="/post/{{post.slug}}"><img src="{{post.image.[0]}}" alt=" " class="img-fluid" id="showImage"/></a>
+                        <h6 class="courses-first text-dark mt-4 mb-2">
+                            <i class="far fa-user mr-2"></i>Eduline posted in <a href="/{{post.category}}" class="">{{post.category}}</a>
+                        </h6>
+           
+                        <ul class="courses_list my-2">
+                            {{#if post.date}}
+                          <li class="mr-2"> {{formatTime post.updatedAt " MMMM DD, YYYY"}}</li>
+                              {{ else }}
+                            <li class="mr-2"> {{formatTime post.date " MMMM DD, YYYY"}}</li>
+                             {{/if}}
+                            <li>
+                                <a href="#">
+                                    <i class="far fa-comments mr-1 "></i>
+                                  {{comments.length}}  </a>
+                            </li>
+                             <li>
+                                <a href="#">
+                                    <i class="far fa-eye mx-1"></i>
+                                    {{post.views}} </a>
+                            </li>
+                        </ul>
+                        <h5 class="card-title">
+                            <a href="/post/{{post.slug}}" class="text-dark" id="tit">{{post.title}}</a>
+                        </h5>
+                        <p>{{{post.detail}}}</p>
+                          
+                    </div>
+                  
+                   <div class="container my-3">
+                       {{#if post.image.[1]}}
+              <a href="/post/{{post.slug}}"><img src="{{post.image.[1]}}" alt=" " class="img-fluid mb-2" id="showImage"/></a>
+                   {{/if}}
+                   {{#if post.image.[2]}}
+              <a href="/post/{{post.slug}}"><img src="{{post.image.[2]}}" alt=" " class="img-fluid mb-2" id="showImage"/></a>
+                  {{/if}}
+                  {{#if post.image.[3]}}
+              <a href="/post/{{post.slug}}"><img src="{{post.image.[3]}}" alt=" " class="img-fluid " id="showImage"/></a>
+                     {{/if}}
+                   </div>
+                   <p class="text-center text-danger mb-1">Share this post</p>
+
+              <div class="d-flex justify-content-center">
+               <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox_up0v"></div>
+              </div>
+
+                    <div class="comments my-0">
+                       <div class="container mt-4 text-center">
+                           {{#if post.allowComment}}
+                            <a href="/post/{{post.slug}}/comment">Add Comment <i class="fa fa-angle-double-right"></i></a>
+                          
+                          {{/if}}
+                        </div>
+                          {{#if comments}}
+                        <h3 class="courses-title mt-4 "> Recent Comments</h3>
+                        {{/if}}
+                        {{#each comments}}
+                        <div class="comments-grids mt-4">
+                            <div class="media mt-4">
+                               {{#if commentUser.isMale}}
+                                <img class="mr-3" src="/images/m.png" alt="Generic placeholder image">
+                                  {{ else }}
+                           <img class="mr-3" src="/images/f.png" alt="Generic placeholder image">
+
+                                {{/if}}
+                              
+                                <div class="media-body comments-grid-right">
+                              <a href="/profile/{{commentUser.slug}}" class="text-dark"><h4>{{username}}</h4></a>
+                                      <ul class="my-2">
+                                        <li class="font-weight-bold">{{formatTime commentDate "DD MMMM YYYY"}}
+                                            <i>|</i>
+                                        </li>
+                                        <li>
+                                            <a href="/profile/{{commentUser.slug}}" class="font-weight-bold">{{commentUser.gender}}</a>
+                                        </li>
+                                    </ul>
+                                    <p>{{commentBody}}
+                                       </p>
+                                     
+                                 </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                   <!-- {{#if post.allowComment}}
+                    Do not show this anymore
+                    <div class="leave-coment-form" id="commentReply">
+                        <h3 class="courses-title  mb-4">Leave a Reply</h3>
+                        <form action="/comment/post/{{post.slug}}" method="POST">
+                           <div class="form-group">
+                                <textarea name="commentBody" class="form-control" placeholder="Your comment here..."
+                                    required=""></textarea>
+                            </div>
+                            <div class="mm_single_submit">
+                                <input type="submit" value="Post Comment">
+                            </div>
+                        </form>
+                    </div>
+                    {{ else }}
+                    <p class="text-dark">Comment disabled</p>
+                    {{/if}}
+                    -->
+                     <!--pagination begins-->
+                {{#if comments}}
+          <div class="pagination d-flex justify-content-center my-4">
+              <ul class="nav">
+                   {{#if startIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{startIndex}}" class="nav-link bg-danger mr-1 text-white"> <i class="fa fa-angle-double-left"> Previous Comments</i></a> 
+                 </li>
+                    {{/if}}
+                     {{#if nextIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{nextIndex}}" class="nav-link bg-danger mr-1 text-white"> Next Comments <i class="fa fa-angle-double-right"></i></a> 
+               </li>  
+               {{/if}}
+              </ul>
+          </div>
+          {{/if}}
+          <!--pagination end-->
+                 </div>
+                <!-- //left side -->
+                <!-- right side -->
+                <div class="col-lg-4 event-right mt-lg-0 mt-sm-2 mt-4">
+                    <div class="event-right1">
+                        <div class="categories my-4 p-4 border">
+                            <h3 class="courses-title ">Categories</h3>
+                            <ul>
+                                <li class="mt-3">
+                                    <i class="fas fa-check mr-2"></i>
+                                    <a href="/scholarship">Scholarships</a>
+                                </li>
+                                <li class="mt-3">
+                                    <i class="fas fa-check mr-2"></i>
+                                    <a href="/news">News</a>
+                                </li>
+                                <li class="mt-3">
+                                    <i class="fas fa-check mr-2"></i>
+                                    <a href="/jamb">Jamb</a>
+                                </li>
+                                <li class="mt-3">
+                                    <i class="fas fa-check mr-2"></i>
+                                    <a href="/admission">Admissions</a>
+                                </li>
+                                <li class="mt-3">
+                                    <i class="fas fa-check mr-2"></i>
+                                    <a href="/event">School Events</a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                        <div class="search1">
+                            <form class="form-inline" action="/search" method="GET">
+                                <input class="form-control rounded-0 mr-sm-2" type="search" name="query" placeholder="Search Here"
+                                    aria-label="Search" required>
+                                <input class="btn bg-dark text-white rounded-0 mt-3 w-100" type="submit" value="Search">
+                            </form>
+                        </div>
+                        <div class="posts p-4 border">
+                            {{#if recents}}
+                            <h3 class="courses-title ">Recent Posts</h3>
+                            {{/if}}
+                            <div class="posts-grids">
+                                {{#each recents}}
+                                <div class="row posts-grid mt-4">
+                                    <div class="col-lg-4 col-md-3 col-4 posts-grid-left pr-0">
+                                        <a href="/post/{{slug}}">
+                                           <img src="{{image.[0]}}" alt=" " class="img-fluid" id="recentImage" />
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-8 col-md-7 col-8 posts-grid-right mt-lg-0 mt-md-5 mt-sm-4">
+                                        <h4>
+                                            <a href="/post/{{slug}}" class="text-dark" id="tit">{{title}}</a>
+                                        </h4>
+                                        <ul class="wthree_courses_events_list mt-2">
+                                            <li class="mr-2 text-dark">
+                                                {{#if updatedAt}}
+                                             <i class="fa fa-calendar mr-2" aria-hidden="true"></i>{{formatTime updatedAt "DD/MM/YY"}}</li>
+                                                   {{ else }}
+                                                <i class="fa fa-calendar mr-2" aria-hidden="true"></i>{{formatTime date "DD/MM/YY"}}</li>
+                                                     {{/if}}
+                                            <li>
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <a href="/" class="text-dark ml-2">Eduline</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {{/each}}  
+                            </div>
+                        </div>
+                            
+                    
+                           
+                    <aside class="side-bar my-4">
+                        <ul class="nav nav-tabs" role="tablist" id="myTab">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#home1" role="tab">Featured</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Top</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Latest</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content sidebar-tabing mt-3" id="nav-tabContent">
+                            
+                            <div class="tab-pane active" id="home1" role="tabpanel">
+                                {{#each featured}}
+                                <div class="media">
+                                    <a href="/post/{{slug}}">
+                                        <img class="d-flex mr-3 img-fluid my-2" src="{{image.[0]}}" alt="Generic placeholder image" id=""/>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="news-title">
+                                            <h5 class="title-small">
+                                                <a href="/post/{{slug}}" class="text-black" id="tit">{{title}}
+                                              </a>
+                                           </h5>
+                                        </div>
+                                        <div class="news-auther">
+                                            <small class="text-time">
+                                                {{#if updatedAt}}
+                                                <em>{{formatDate updatedAt "fromNow"}}</em>
+                                                   {{ else }}
+                                             <em>{{formatDate date "fromNow"}}</em>                      
+                                                 {{/if}}
+                                            </small>
+                                        </div>
+                                    </div>
+                                     
+                                   </div>
+                                  {{/each}}
+                             
+                                 </div>
+                            <div class="tab-pane" id="profile" role="tabpanel">
+                                {{#each top}}
+                                <div class="media">
+                                    <a href="/post/{{slug}}">
+                                        <img class="d-flex mr-3 img-fluid my-2" src="{{image.[0]}}" alt="Generic placeholder image" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="news-title">
+                                            <h5 class="title-small">
+                                                <a href="/post/{{slug}}" class="text-black" id="tit">{{title}}
+                                                    </a>
+                                           </h5>
+                                        </div>
+                                        <div class="news-auther">
+                                            <small class="text-time">
+                                                <em>{{formatDate date "fromNow"}}</em>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                               {{/each}}
+                               
+                            </div>
+                            <div class="tab-pane" id="messages" role="tabpanel">
+                                {{#each latest}}
+                                <div class="media">
+                                    <a href="/post/{{slug}}">
+                                        <img class="d-flex mr-3 img-fluid my-2" src="{{image.[0]}}" alt="Generic placeholder image">
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="news-title">
+                                            <h5 class="title-small">
+                                                <a href="/post/{{slug}}" class="text-black" id="tit">{{title}}
+                                                    </a>
+                                           </h5>
+                                        </div>
+                                        <div class="news-auther">
+                                            <small class="text-time">
+                                                {{#if updatedAt}}
+                                                <em>{{formatDate updatedAt "fromNow"}}</em>
+                                                   {{ else }}
+                                             <em>{{formatDate date "fromNow"}}</em>                      
+                                                 {{/if}}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                               {{/each}}
+                              
+                            </div>
+                        </div>
+                      
+                    </aside>
+                  
+                </div>
+                <!-- //right side -->
+            </div>
+        </div>
+    </div>
+    <!-- //single -->
+      {{>_footer}}
+
+
+
+    <style>
+    #showImage{
+        height: 600px;
+        width: 100%;
+         
+    }
+    #recentImage{
+        height: 100px;
+        width:100%;
+    }
+    #tit{
+        text-transform: capitalize;
+    }
+    #applying{
+        text-decoration: underline;
+    }
+     @media screen and (max-width: 768px){
+          #showImage{
+          width:100%;
+          height: 35vh;
+    }
+    }
+    </style>

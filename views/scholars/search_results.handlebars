@@ -1,0 +1,83 @@
+{{>_adm_head}}
+<div class="container-flex">
+  <h5 class="text-center my-2" id="headText">Eduline Jambite Scholarship Applicants</h5>
+  <form action="/scholarship/search" method="GET">
+   <div class="input-group">
+     <input type="search" name="query" class="form-control" placeholder="Search..." id="searching">
+     <div class="input-group-append">
+       <button class="btnse" type="submit">Search</button>
+     </div>
+   </div>
+  </form>
+
+</div>
+<div class="container my-4">
+ 
+   <div class="container col-md-6" id="summary">
+       {{#if searching}}
+       <p class="text-center p-2">Search results for <span class="text-danger">{{query}}</span></p>
+      {{ else }}
+     <p class="text-center p-2">No search results for <span class="text-danger">{{query}}</span> found</p>
+     {{/if}}
+   </div>
+    {{#each searching}}
+  <div class="container text-center my-3 col-md-6" id="landing">
+      <a href="/scholarship/edit/{{_id}}" class="d-flex justify-content-start" id="ema"><i class="fa fa-edit"></i></a>
+
+    <a href="/scholarship/email/{{_id}}" class="d-flex justify-content-end" id="ema">Email</a>
+    
+      <p class="text">First Name</p>
+     <p class="text1">{{firstName}}</p>
+      <p class="text">Last Name</p>
+      <p class="text1">{{lastName}}</p>
+      <p class="text">Email</p>
+      <p class="text1">{{email}}</p>
+       <p class="text">State of Origin</p>
+      <p class="text1">{{state}}</p>
+       <p class="text">Jamb Reg Number</p>
+      <p class="text1">{{regNumber}}</p>
+       <p class="text">Jamb Score</p>
+      <p class="text1">{{score}}</p>
+       <p class="text">Institution</p>
+      <p class="text1">{{choice}}</p>
+        <p class="text">Bank</p>
+      <p class="text1">{{bank}}</p>
+        <p class="text">Account Number</p>
+      <p class="text1">{{account}}</p>
+        <p class="text">Account Name</p>
+      <p class="text1">{{actName}}</p>
+        <p class="text">isScholar</p>
+      <p class="text1">{{isScholar}}</p>
+       <p class="text">Registered Date</p>
+      <p class="text1">{{formatTime date "DD/MM/YYYY"}}</p>
+       <p class="text">The User</p>
+      <p class="text1"><a href="/edit/{{user}}">{{user}}</a></p>
+
+  </div>
+  {{/each}}
+       {{#if searching}}
+      <!--pagination begins-->
+
+          <div class="pagination d-flex justify-content-center my-4">
+              <ul class="nav">
+                   {{#if startIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{startIndex}}" class="nav-link bg-danger mr-1 text-white"> <i class="fa fa-angle-double-left"> Previous </i></a> 
+                 </li>
+                    {{/if}}
+                     {{#if nextIndex}}
+                 <li class="nav-item">
+                  <a href="?page={{nextIndex}}" class="nav-link bg-danger mr-1 text-white"> Next <i class="fa fa-angle-double-right"></i></a> 
+               </li>  
+               {{/if}}
+              </ul>
+          </div>
+          <!--pagination end-->
+          {{/if}}
+   
+  
+ </div>
+
+
+
+ {{>_adm_foot}}
